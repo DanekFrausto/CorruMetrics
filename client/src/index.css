@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../../tailwind.config.ts";
+@import "tailwindcss";
 
 /* CorruMetrics — Industrial Operations Platform
  * Color direction: warm industrial neutrals + teal accent for states
