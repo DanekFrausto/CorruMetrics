@@ -1,3 +1,4 @@
+
 # CorruMetrics
 
 **Sistema operativo visual para planta industrial de cartón corrugado.**

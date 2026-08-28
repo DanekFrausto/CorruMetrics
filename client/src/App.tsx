@@ -7,7 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { AuthProvider, useAuth } from "@/lib/auth-context";
-import { PerplexityAttribution } from "@/components/PerplexityAttribution";
 
 import LoginPage from "@/pages/login";
 import DashboardPage from "@/pages/dashboard";
@@ -33,7 +32,6 @@ function AppShell({ children }: { children: React.ReactNode }) {
           <main className="flex-1 overflow-hidden">
             {children}
           </main>
-          <PerplexityAttribution />
         </div>
       </div>
     </SidebarProvider>

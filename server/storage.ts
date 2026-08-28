@@ -69,7 +69,12 @@ export class MemStorage implements IStorage {
   async getAppUsers() { return Array.from(this.appUsers.values()); }
   async createAppUser(data: InsertAppUser) {
     const id = randomUUID();
-    const user: AppUser = { ...data, id };
+    const user: AppUser = {
+      id,
+      ...data,
+      role: data.role ?? "operator",
+      isActive: data.isActive ?? true,
+    };
     this.appUsers.set(id, user);
     return user;
   }
@@ -122,7 +127,13 @@ export class MemStorage implements IStorage {
   }
   async createEmployee(data: InsertEmployee) {
     const id = randomUUID();
-    const emp: Employee = { id, ...data, isActive: data.isActive ?? true };
+    const emp: Employee = {
+      id,
+      ...data,
+      lineId: data.lineId ?? null,
+      shiftId: data.shiftId ?? null,
+      isActive: data.isActive ?? true,
+    };
     this.employees.set(id, emp);
     return emp;
   }
@@ -144,7 +155,13 @@ export class MemStorage implements IStorage {
   }
   async createProductionRecord(data: InsertProductionRecord) {
     const id = randomUUID();
-    const record: ProductionRecord = { id, ...data, scrapQuantity: data.scrapQuantity ?? 0 };
+    const record: ProductionRecord = {
+      id,
+      ...data,
+      employeeId: data.employeeId ?? null,
+      scrapQuantity: data.scrapQuantity ?? 0,
+      notes: data.notes ?? null,
+    };
     this.productionRecords.set(id, record);
     return record;
   }
@@ -158,7 +175,11 @@ export class MemStorage implements IStorage {
   }
   async createDowntime(data: InsertDowntime) {
     const id = randomUUID();
-    const dt: Downtime = { id, ...data };
+    const dt: Downtime = {
+      id,
+      ...data,
+      notes: data.notes ?? null,
+    };
     this.downtimes.set(id, dt);
     return dt;
   }
